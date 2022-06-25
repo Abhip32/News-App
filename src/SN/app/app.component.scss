@@ -1,0 +1,83 @@
+
+body{
+    .navbar{
+        .navbar-brand{
+            img{
+                width: 70px;
+                height: 70px;
+            }
+        }
+        a{
+            color: black;
+            cursor: pointer;
+        }
+        
+        label{
+            align-items: center;
+            display: flex;
+            font-weight: 700;
+        }
+        select{
+            width: 10vw;
+            background-color: white;
+            margin: 1vw;
+            padding: 0.5vh;
+            border: 2px solid black;
+            option{
+                background-color: black;
+                color: white;
+                img{
+                    width: 2vw;
+                    height: 2vw;
+                }
+            }
+        }
+    }
+    .Catagory{
+        display: flex;
+        margin: 1vw;;
+        cursor: pointer;
+        .nav-pills .nav-link.active {
+            background-color: red;
+          }
+    }
+
+    .noCatagory{
+        display: none;
+    }
+    .row{
+        margin: 0.5vw;
+        .card{
+            display: flex;
+            margin: 0.5vw;
+
+            img{
+                padding: 0.5vw;
+                height: 35vh;
+            }
+            .card-title{
+                height: 10vh;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .card-text{
+                height: 20vh;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .card-author{
+                height: 3vh;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            
+            
+
+           
+        }
+    }
+
+}

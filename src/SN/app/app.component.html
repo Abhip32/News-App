@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="app.component.scss">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#" style="color: black;"><img src="../assets/news-gac89ba4c3_640.png"/></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" (click)="api();search.value=''">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="Search(search.value)">Search</a>
+          </li>
+        </ul>
+          <label for="Region">Country</label>
+            <select name="Region"#teams (change)="onSelected(teams.value)">
+              <option>AE</option>
+              <option>AR</option>
+              <option>AT</option>
+              <option>AU</option>
+              <option>BE</option>
+              <option>BR</option>
+              <option>CA</option>
+              <option>CN</option>
+              <option>CO</option>
+              <option>CU</option>
+              <option>DE</option>
+              <option>EG</option>
+              <option>GB</option>
+              <option>GR</option>
+              <option>HK</option>
+              <option>HU</option>
+              <option>ID</option>
+              <option>IE</option>
+              <option>IL</option>
+              <option selected>IN</option>
+              <option>IT</option>
+              <option>JP</option>
+              <option>KR</option>
+              <option>LT</option>
+              <option>LV</option>
+              <option>MA</option>
+              <option>MX</option>
+              <option>MY</option>
+              <option>NG</option>
+              <option>NL</option>
+              <option>NO</option>
+              <option>NZ</option>
+              <option>PH</option>
+              <option>PL</option>
+              <option>PT</option>
+              <option>RO</option>
+              <option>RS</option>
+              <option>RU</option>
+              <option>SA</option>
+              <option>SE</option>
+              <option>SG</option>
+              <option>SI</option>
+              <option>SK</option>
+              <option>TH</option>
+              <option>TR</option>
+              <option>TW</option>
+              <option>UA</option>
+              <option>US</option>
+              <option>VE</option>
+              <option>ZA</option>
+            </select>
+        <form class="form-inline my-2 my-lg-0">
+          <input #search class="form-control mr-sm-2" type="search" value='' placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0"  (click)="Search(search.value)" type="submit" href="Search">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div [ngClass]="{'Catagory': search.value == '', 'noCatagory': search.value !=''}">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" >
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" #catagory (click)="onPress('general')" role="tab" aria-controls="pills-home" aria-selected="true">General</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" #catagory (click)="onPress('business')" role="tab" aria-controls="pills-profile" aria-selected="false">Business</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('entertainment')" role="tab" aria-controls="pills-contact" aria-selected="false">Entertainment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('health')" role="tab" aria-controls="pills-contact" aria-selected="false">Health</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('science')" role="tab" aria-controls="pills-contact" aria-selected="false">Science</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('sports')" role="tab" aria-controls="pills-contact" aria-selected="false">Sports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('technology')" role="tab" aria-controls="pills-contact" aria-selected="false">Technology</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let item of articles">
+        <div class="card">
+          <img *ngIf="item.urlToImage!=null"src={{item.urlToImage}} class="card-img-top" alt="...">
+          <img *ngIf="item.urlToImage==null"src="../assets/no_image.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <hr/>
+            <h6 *ngIf="item.author!=null" class="card-author">{{item.author}}</h6>
+            <h6 *ngIf="item.author==null" class="card-author">Unknown</h6>
+            <h6 id="card-date">{{go(item.publishedAt)}}</h6>
+            <p class="card-text">{{item.description}}</p>
+            <a href={{item.url}} class="btn btn-primary" style="background-color: red;">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

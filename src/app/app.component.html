@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="app.component.scss">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#" style="color: black;"><img src="../assets/news-gac89ba4c3_640.png"/></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" (click)="api();search.value=''" routerLink="" >Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="Search(search.value)">Search</a>
+          </li>
+        </ul>
+       
+        <form class="form-inline my-2 my-lg-0">
+          <input #search class="form-control mr-sm-2" type="search" value='' placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0"  (click)="Search(search.value)" type="submit" href="Search">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div [ngClass]="{'Catagory': search.value == '', 'noCatagory': search.value !=''}">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" >
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" #catagory (click)="onPress('home')" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-home-tab" data-toggle="pill" #catagory (click)="onPress('arts')" role="tab" aria-controls="pills-home" aria-selected="true">Arts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" #catagory (click)="onPress('automobiles')" role="tab" aria-controls="pills-profile" aria-selected="false">Automobiles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('books')" role="tab" aria-controls="pills-contact" aria-selected="false">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('business')" role="tab" aria-controls="pills-contact" aria-selected="false">Business</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('fashion')" role="tab" aria-controls="pills-contact" aria-selected="false">Fashion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('food')" role="tab" aria-controls="pills-contact" aria-selected="false">Food</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('health')" role="tab" aria-controls="pills-contact" aria-selected="false">Health</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('insider')" role="tab" aria-controls="pills-contact" aria-selected="false">Insider</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('magazine')" role="tab" aria-controls="pills-contact" aria-selected="false">Magazine</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('movies')" role="tab" aria-controls="pills-contact" aria-selected="false">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('obituaries')" role="tab" aria-controls="pills-contact" aria-selected="false">Obituaries</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('opinion')" role="tab" aria-controls="pills-contact" aria-selected="false">Opinion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('politics')" role="tab" aria-controls="pills-contact" aria-selected="false">Politics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('realestate')" role="tab" aria-controls="pills-contact" aria-selected="false">Realestate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('science')" role="tab" aria-controls="pills-contact" aria-selected="false">Science</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('sports')" role="tab" aria-controls="pills-contact" aria-selected="false">Sports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('sundayreview')" role="tab" aria-controls="pills-contact" aria-selected="false">Sunday Review</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('technology')" role="tab" aria-controls="pills-contact" aria-selected="false">Technology</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('theater')" role="tab" aria-controls="pills-contact" aria-selected="false">Theater</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('t-magazine')" role="tab" aria-controls="pills-contact" aria-selected="false">T-Magazine</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('travel')" role="tab" aria-controls="pills-contact" aria-selected="false">Travel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('upshot')" role="tab" aria-controls="pills-contact" aria-selected="false">Upshot</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('us')" role="tab" aria-controls="pills-contact" aria-selected="false">US</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" #catagory (click)="onPress('world')" role="tab" aria-controls="pills-contact" aria-selected="false">World</a>
+        </li>
+
+        
+      </ul>
+    </div> 
+    <div  [ngClass]="{'row': search.value == '','nocard': search.value != ''}">
+      <div class="col-sm-4" *ngFor="let item of articles">
+        <div [ngClass]="{'card': item.multimedia != null,'nocard': item.multimedia == null}">
+          <ng-template [ngIf]="item.multimedia != null">
+            <img src={{item.multimedia[0].url}} class="card-img-top" alt="...">
+          </ng-template>
+          <ng-template [ngIf]="item.multimedia == null">
+            <img src="../assets/no_image.jpeg"class="card-img-top" alt="...">
+          </ng-template>
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <hr/>
+            <h6 class="card-author">{{item.byline}}</h6>
+            <p class="card-text">{{item.abstract}}</p>
+            <a href={{item.url}} class="btn btn-primary" style="background-color: red;">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div  [ngClass]="{'row': search.value != '','nocard': search.value == ''}">
+      <div class="col-sm-4" *ngFor="let item of articles1">
+        <div [ngClass]="{'card': item.multimedia != [],'nocard': item.multimedia == []}">
+          <img src="{{'https://static01.nyt.com/'+item.multimedia[0].url}}">
+          <div class="card-body">
+            <h5 class="card-title">{{item.headline.main}}</h5>
+            <hr/>
+            <h6 class="card-author">{{item.byline.original}}</h6>
+            <p class="card-text">{{item.abstract}}</p>
+            <a href={{item.web_url}} class="btn btn-primary" style="background-color: red;">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
